@@ -1,0 +1,15 @@
+{
+  "name": "@morganshaner/onedrive-fetch",
+  "version": "0.0.1",
+  "description": "Fetches and returns children and their share urls from a public OneDrive folder.",
+  "license": "MIT",
+  "repository": "morganshaner/onedrive-fetch",
+  "main": "index.js",
+  "keywords": [
+    "onedrive",
+    "fetch",
+    "children",
+    "folder",
+    "share"
+  ]
+}
