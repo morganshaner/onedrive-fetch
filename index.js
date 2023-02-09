@@ -1,6 +1,6 @@
 module.exports = function odfetch(input_url, name_array) {
   if ((arguments.length = 0)) {
-    return { error: "This method requires arguments. See documentation." };
+    return { error: "This function requires arguments. See documentation." };
   }
 
   function fetcher(input_url, name_array, prev_name) {
