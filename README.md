@@ -13,12 +13,12 @@ Coming soon.
 ```js
 const odfetch = require("onedrive-fetch");
 
-odfetch("https://1drv.ms/u/s!AsOBq5tE-6XDgZpN9uwZG5iZWGi3vw?e=QZStu2", //Required first argument must be share URL of root folder
+odfetch("https://1drv.ms/u/s!AsOBq5tE-6XDgZpN9uwZG5iZWGi3vw", //Required first argument must be share URL of root folder
 ["Folder", "Sub-folder"]) //Optional second argument accepts list of sub-folders to open
   .then(function (children) {
   
     if (children.error) {
-     console.log(children); //Handle error
+      console.log(children); //Handle error
      
     } else {
 
