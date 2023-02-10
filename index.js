@@ -15,7 +15,6 @@ module.exports = function odfetch(top_input_url, name_array = []) {
         if (json.children == undefined) {
           return { error: "Did not find child name: " + prev_name };
         }
-
         let target = undefined;
         for (let x = 0; x < json.children.length; x++) {
           if (json.children[x].name == name_array[0]) {
@@ -23,11 +22,9 @@ module.exports = function odfetch(top_input_url, name_array = []) {
             break;
           }
         }
-
         if (name_array.length > 1 && target == undefined) {
           return { error: "Did not find child name: " + name_array[0] };
         }
-
         if (name_array.length > 0) {
           return fetcher(target, name_array.slice(1), name_array[0]);
         } else {
@@ -43,9 +40,7 @@ module.exports = function odfetch(top_input_url, name_array = []) {
         };
       });
   }
-
   let checked_top_input_url = top_input_url.split("?")[0];
-
   let output = fetcher(checked_top_input_url, name_array, name_array[0]);
   return output;
 }
