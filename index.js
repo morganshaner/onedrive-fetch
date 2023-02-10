@@ -1,8 +1,4 @@
-module.exports = function odfetch(input_url, name_array) {
-  if ((arguments.length = 0)) {
-    return { error: "This function requires arguments. See documentation." };
-  }
-
+module.exports = function odfetch(top_input_url, name_array = []) {
   function fetcher(input_url, name_array, prev_name) {
     return fetch(
       "https://api.onedrive.com/v1.0/shares/u!" +
@@ -10,13 +6,12 @@ module.exports = function odfetch(input_url, name_array) {
         "/root?expand=children"
     )
       .then(function (response) {
-        return response.json();
+        if (response.ok) {
+          return response.json();
+        }
+        return Promise.reject(response);
       })
       .then(function (json) {
-        if (json.error) {
-          return { error: "Invalid folder url. See documentation." };
-        }
-
         if (json.children == undefined) {
           return { error: "Did not find child name: " + prev_name };
         }
@@ -38,8 +33,19 @@ module.exports = function odfetch(input_url, name_array) {
         } else {
           return json.children;
         }
+      })
+      .catch((error) => {
+        return {
+          error:
+            "OneDrive API returned an error code (" +
+            error.status +
+            "). Check arguments."
+        };
       });
   }
-  let output = fetcher(input_url, name_array, name_array[0]);
+
+  let checked_top_input_url = top_input_url.split("?")[0];
+
+  let output = fetcher(checked_top_input_url, name_array, name_array[0]);
   return output;
 }
