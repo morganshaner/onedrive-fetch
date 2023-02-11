@@ -1,7 +1,7 @@
 {
-  "name": "@morganshaner/onedrive-fetch",
+  "name": "onedrive-fetch",
   "version": "1.0.0",
-  "description": "Fetches and returns children's json from a public OneDrive folder using the OneDrive API.",
+  "description": "Fetches and returns children's json data from a public OneDrive folder using the OneDrive API.",
   "license": "MIT",
   "repository": "morganshaner/onedrive-fetch",
   "main": "index.js",
