@@ -10,7 +10,7 @@ $ npm install onedrive-fetch
 
 ## Usage
 
-The following example returns children (files/folders) in the OneDrive location ".../Root/Folder/Sub-folder".
+The following example returns children's data (files/folders) in the OneDrive location ".../Root/Folder/Sub-folder".
 
 ```js
 const odfetch = require("onedrive-fetch");
